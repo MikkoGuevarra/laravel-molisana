@@ -30,9 +30,9 @@ Route::get('/dettagli-prodotto/{id}', function($id){
 
     $data = [
         'formato' => $prodotto
-    ]
+    ];
     return view('dettagli', $data);
-});
+})->name('details');
 
 Route::get('/news', function () {
     return view('news');

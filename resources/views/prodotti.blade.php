@@ -3,11 +3,11 @@
     <div class="container">
         <h1>Prodotti</h1>
         <div class="card-cont">
-            @foreach ($formati as $formato)
+            @foreach ($formati as $key => $formato)
                 <div class="card">
                     <img src="{{$formato['src']}}" alt="{{$formato['titolo']}}">
                     <div class="description">
-                        <a href="#">{{$formato['titolo']}}</a>
+                        <a href="{{route('details', ['id' => $key])}}">{{$formato['titolo']}}</a>
                     </div>
                 </div>
             @endforeach

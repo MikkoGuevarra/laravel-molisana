@@ -26,6 +26,10 @@ a {
     margin: 0 auto;
 }
 
+img {
+    max-width: 100%;
+}
+
 .card-cont {
     display: flex;
     flex-wrap: wrap;
@@ -36,9 +40,6 @@ a {
             display: block;
             background-color: rgba(255, 255, 255, 0.6);
         }
-    }
-    img {
-        max-width: 100%;
     }
     .description {
         display: none;
@@ -56,4 +57,13 @@ a {
             height: 100%;
         }
     }
+}
+
+.head-product img, .pack-pasta img {
+    display: block;
+}
+
+.prod-desc {
+    background-color: #B8DAE6;
+    padding: 50px 0;
 }
