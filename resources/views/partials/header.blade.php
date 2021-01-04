@@ -5,14 +5,14 @@
     <div class="menu">
         <nav>
             <ul>
-                <li>
+                <li class="nav-menu">
                     <a href="{{url('/')}}">Home</a>
                 </li>
-                <li>
+                <li class="nav-menu active">
                     <a href="{{route('prodotti')}}">Prodotti</a>
                 </li>
-                <li>
-                    <a href="{{url('news')}}">News</a>
+                <li class="nav-menu">
+                    <a href="{{route('news')}}">News</a>
                 </li>
             </ul>
         </nav>

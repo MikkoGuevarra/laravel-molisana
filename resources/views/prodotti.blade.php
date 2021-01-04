@@ -3,16 +3,13 @@
     <div class="container">
         <h1>Prodotti</h1>
         <div class="card-cont">
-            @foreach ($pasta as  $singola_pasta)
+            @foreach ($formati as $formato)
                 <div class="card">
-                    <img src="{{$singola_pasta['src']}}" alt="{{$singola_pasta['titolo']}}">
+                    <img src="{{$formato['src']}}" alt="{{$formato['titolo']}}">
                     <div class="description">
-                        <a href="#">{{$singola_pasta['titolo']}}</a>
-
+                        <a href="#">{{$formato['titolo']}}</a>
                     </div>
-
                 </div>
-
             @endforeach
 
         </div>
