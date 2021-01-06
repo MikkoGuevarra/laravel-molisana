@@ -18,8 +18,23 @@ Route::get('/', function () {
 });
 
 Route::get('/prodotti', function () {
+    $array_pasta = config('pasta');
+    $lunga = array_filter($array_pasta, function($elemento){
+        return $elemento['tipo'] == 'lunga';
+    });
+    $corta = array_filter($array_pasta, function($elemento){
+        return $elemento['tipo'] == 'corta';
+    });
+    $cortissima = array_filter($array_pasta, function($elemento){
+        return $elemento['tipo'] == 'cortissima';
+    });
+
     $data = [
-        'formati' =>  config('pasta')
+        'formati' => [
+            'lunga' => $lunga,
+            'corta' => $corta,
+            'cortissima' => $cortissima
+        ]
     ];
     return view('prodotti', $data);
 })->name('prodotti');
