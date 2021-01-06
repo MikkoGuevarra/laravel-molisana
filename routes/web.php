@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/prodotti', function () {
     $array_pasta = config('pasta');
@@ -49,11 +49,14 @@ Route::get('/prodotti', function () {
 
 Route::get('/dettagli-prodotto/{id}', function($id){
     $array_pasta = config('pasta');
-    if (is_numeric($id) && $id > 0 && $id < count($array_pasta) ) {
+    $next = $id + 1;
+    $prev = $id - 1;
+    if (is_numeric($id)  && $id < count($array_pasta)) {
         $prodotto = $array_pasta[$id];
-
         $data = [
-            'formato' => $prodotto
+            'formato' => $prodotto,
+            'next' => $next,
+            'prev' => $prev
         ];
         return view('dettagli', $data);
     } else {

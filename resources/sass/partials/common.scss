@@ -12,11 +12,12 @@ li {
     display: inline-block;
     padding: 20px;
     .active {
-        background-color:$navColor;
+        background-color: $navColor;
     }
 }
 
 a {
+    padding: 20px;
     text-decoration: none;
     color: #000;
 }
@@ -67,6 +68,23 @@ img {
     background-color: #B8DAE6;
     padding: 50px 0;
 }
+
+.pack-pasta {
+    position: relative;
+    .right-arrow, .left-arrow {
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .right-arrow {
+        right: 0;
+    }
+    .left-arrow {
+        left: 0;
+    }
+}
+
 
 .products {
     text-transform: uppercase;

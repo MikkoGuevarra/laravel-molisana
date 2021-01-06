@@ -13,10 +13,11 @@ li {
   padding: 20px;
 }
 li .active {
-  background-color: #B3E5FC;
+  background-color: #B6DBE4;
 }
 
 a {
+  padding: 20px;
   text-decoration: none;
   color: #000;
 }
@@ -66,6 +67,22 @@ img {
 .prod-desc {
   background-color: #B8DAE6;
   padding: 50px 0;
+}
+
+.pack-pasta {
+  position: relative;
+}
+.pack-pasta .right-arrow, .pack-pasta .left-arrow {
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pack-pasta .right-arrow {
+  right: 0;
+}
+.pack-pasta .left-arrow {
+  left: 0;
 }
 
 .products {
