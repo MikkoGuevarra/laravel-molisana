@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::get('/prodotti', function () {
     $array_pasta = config('pasta');
+    /*
     $lunga = array_filter($array_pasta, function($elemento){
         return $elemento['tipo'] == 'lunga';
     });
@@ -28,7 +29,14 @@ Route::get('/prodotti', function () {
     $cortissima = array_filter($array_pasta, function($elemento){
         return $elemento['tipo'] == 'cortissima';
     });
+    */
 
+    //Collection
+
+    $collection_pasta = collect($array_pasta);
+    $lunga = $collection_pasta->where('tipo', 'lunga');
+    $corta = $collection_pasta->where('tipo', 'corta');
+    $cortissima = $collection_pasta->where('tipo', 'cortissima');
     $data = [
         'formati' => [
             'lunga' => $lunga,
@@ -41,12 +49,16 @@ Route::get('/prodotti', function () {
 
 Route::get('/dettagli-prodotto/{id}', function($id){
     $array_pasta = config('pasta');
-    $prodotto = $array_pasta[$id];
+    if (is_numeric($id) && $id > 0 && $id < count($array_pasta) ) {
+        $prodotto = $array_pasta[$id];
 
-    $data = [
-        'formato' => $prodotto
-    ];
-    return view('dettagli', $data);
+        $data = [
+            'formato' => $prodotto
+        ];
+        return view('dettagli', $data);
+    } else {
+        abort('404');
+    }
 })->name('details');
 
 Route::get('/news', function () {
