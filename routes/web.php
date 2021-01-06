@@ -49,10 +49,18 @@ Route::get('/prodotti', function () {
 
 Route::get('/dettagli-prodotto/{id}', function($id){
     $array_pasta = config('pasta');
-    $next = $id + 1;
-    $prev = $id - 1;
     if (is_numeric($id)  && $id < count($array_pasta)) {
         $prodotto = $array_pasta[$id];
+        $next = $id + 1;
+        $prev = $id - 1;
+
+        if ($id == count($array_pasta) - 1) {
+            $next = 0;
+        }
+
+        if ($id == 0) {
+            $prev = count($array_pasta) - 1;
+        }
         $data = [
             'formato' => $prodotto,
             'next' => $next,
